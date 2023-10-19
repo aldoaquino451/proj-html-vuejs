@@ -1,10 +1,12 @@
 <script>
-import { store } from "../data/store"
+import Menu from "./partials/Menu.vue";
+import { store } from "../data/store";
+
 
 export default {
   name: 'Header',
   components: {
-    // NewComponent
+    Menu,
   },
   data() {
     return {
@@ -17,50 +19,56 @@ export default {
 
 <template>
   <div class="header">
-    <!-- <NewComponent /> -->
+
     <div class="logo">
       <img src="../assets/img/logotype.png" alt="">
     </div>
-    <ul class="menu">
-      <li
-        v-for="(section, index) in store.sections"
-        :key="index">
-        <a href="#">
-          {{ section.title }}
-        </a>
-      </li>
-    </ul>
+
+    <Menu :sections="store.sections"/>
+
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 @use '../scss/partials/utilities' as *;
+@use '../scss/partials/vars' as *;
 
 .header {
   @include flex-between;
-  @include container-xl;
+  @include container;
   position: absolute;
+  z-index: 999;
+  height: 80px;
   right: 0;
   left: 0;
-  align-items: end;
-  padding-bottom: 30px;
   .logo {
+    height: 50px;
+    display: flex;
+    align-items: end;
     img {
       height: 25px
     }
   }
   .menu {
-    @include flex-row;
-    gap: 20px;
     li {
-      padding-top: 30px;
-      border-top: 2px solid rgba(0, 0, 0, 0);
+      height: 50px;
+      display: flex;
+      align-items: end;
+      border-top: 2px solid rgba(255, 255, 255, 0);
+      a {
+        color: $bg-arrows;
+      }
+      
       &:hover {
-        border-top: 2px solid rgba(0, 0, 0, 1);
+        border-top: 2px solid rgba(255, 255, 255, 1);
+        a {
+          color: white;
+        }
       }
     }
   }
+
 }
 
 </style>

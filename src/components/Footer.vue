@@ -1,10 +1,11 @@
 <script>
 import { store } from "../data/store"
+import Menu from "./partials/Menu.vue";
 
 export default {
   name: 'Footer',
   components: {
-    // NewComponent
+    Menu,
   },
 
   data() {
@@ -39,13 +40,7 @@ export default {
       <div class="logo">
         <img :src="getImagePath(`../assets/img/${logo}`)" alt="logo">
       </div>
-      <ul class="menu">
-        <li 
-          v-for="(section, index) in store.sections"
-          :key="index">
-          <a href="#">{{ section.title }}</a>
-        </li>
-      </ul>
+      <Menu :sections="store.sections"/>
       <ul class="icons">
         <li 
           v-for="(icon, index) in icons"
@@ -72,17 +67,14 @@ export default {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @use  '../scss/partials/utilities' as *;
 
 .footer {
-  @include container-xl;
+  @include container;
   .footer-top {
     @include flex-between;
-    padding-bottom: 50px;
-    .menu {
-      @include flex-row;
-    }
+    padding: 80px 0;
     .icons {
       @include flex-between;
       gap: 10px;
@@ -94,7 +86,7 @@ export default {
   }
   .footer-bottom {
     @include flex-between;
-    padding-top: 50px;
+    padding: 35px 0;
     border-top: 2px solid black;
     ul {
       @include flex-row;
