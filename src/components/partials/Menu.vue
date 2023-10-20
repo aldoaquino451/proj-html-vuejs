@@ -2,9 +2,11 @@
 
 export default {
   nama: 'Menu',
-  props: {
-    sections: Object,
-  }
+  data() {
+    return {
+      menu: ['home', 'about', 'projects', 'services', 'blog', 'contact']
+    }
+  },
 }
 </script>
 
@@ -12,10 +14,10 @@ export default {
   <div>
     <ul class="menu">
       <li
-        v-for="(section, index) in sections"
+        v-for="(item, index) in menu"
         :key="index">
-        <a href="#">
-          {{ section.title }}
+        <a :href="'#' + item">
+          {{ item }}
         </a>
       </li>
     </ul>

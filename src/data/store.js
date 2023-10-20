@@ -42,5 +42,6 @@ export const store = reactive({
       text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque minus, repellat nesciunt, dolorum adipisci non, accusantium animi ad odio deleniti exercitationem quia sunt totam corporis impedit eaque? Velit, odio tempore?',
       button: 'get started'
     }
-  ]
+  ],
+
 })

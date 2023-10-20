@@ -1,23 +1,20 @@
 <script>
-// import 
 
 export default {
   name: 'Main',
-  components: {
-    // NewComponent
-  }
 }
 </script>
 
 <template>
   <div class="main">
 
-    <section class="home">
+    <section id="home">
       <div class="home-content">HOME</div>
     </section>
-
-    <section class="info">
-      <p class="title">titolo</p>
+    <section id="services">
+      <div class="info-content">
+        <p class="">titolo</p>
+      </div>
       <div class="cards">
         <p class="card">cards</p>
         <p class="card">cards</p>
@@ -26,13 +23,13 @@ export default {
       </div>
     </section>
 
-    <section class="about-us">
+    <section id="about">
       <div class="about-us-content">
         <p>about-us</p>
       </div>
     </section>
 
-    <section class="get-started">
+    <section id="get-started">
       <div class="get-started-content">
         <p>primo testo</p>
         <p>secondo testo</p>
@@ -40,19 +37,19 @@ export default {
       <div class="button">botton</div>
     </section>
     
-    <section class="project container-lg">
+    <section id="projects">
       <p>project</p>
     </section>
 
-    <section class="testimonial">
+    <section id="testimonial">
       testimonial
     </section>
 
-    <section class="blog">
+    <section id="blog">
       blog
     </section>
 
-    <section class="lets-talk">
+    <section id="contact">
       <div class="lets-talk-content">lets talk</div>
     </section>
 
@@ -67,7 +64,7 @@ export default {
   section {
     border: 1px solid black;
   }
-  .home {
+  #home {
     padding: calc(230px + $height-header) 0 230px;
     background-image: url('../assets/img/portrait-of-young-architect-woman-on-meeting-KFZCE3A.jpg');
     background-repeat: no-repeat;
@@ -77,14 +74,14 @@ export default {
       @include container;
     }
   }
-  .info {
+  #services {
     padding: 150px 0 210px 350px;
     background-color: $bg-white;
-    .title {
+    .info-content {
       margin-bottom: 150px;
     }
     .cards {
-      padding-right: 350px;
+      padding-right:   350px;
       display: flex;
       flex-wrap: wrap;  
       gap: 250px;
@@ -93,7 +90,7 @@ export default {
       }
     }
   }
-  .about-us {
+  #about {
     display: flex;
     align-items: center;
     background-image: url('../assets/img/business-people-working-together-on-project-and-5FHSKBL.jpg');
@@ -106,7 +103,7 @@ export default {
       width: 500px;
     }
   }
-  .get-started {
+  #get-started {
     @include container-left;
     @include flex-center-j;
     padding: 110px 0 130px;
@@ -125,26 +122,26 @@ export default {
       background-color: $bg-red;
     }
   }
-  .project {
+  #projects {
     @include container;
     margin-top: 220px;
     margin-bottom: 170px;
   }
-  .testimonial {
+  #testimonial {
     @include container-rigth;
     margin-bottom: 250px;
   }
-  .blog {
+  #blog {
     @include container;
     margin-bottom: 160px;
   }
 
-  .lets-talk {
+  #contact {
     padding: 160px 0 100px 0;
     background-image: url('../assets/img/business-people-working-together-on-project-and-B3MZ4TX.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
-    .lets-talk-content {
+    .contact-content {
       width: 600px;
       margin: 0 auto;
     }
