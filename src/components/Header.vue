@@ -1,65 +1,65 @@
 <script>
-import Menu from "./partials/Menu.vue";
 import { store } from "../data/store";
-
+import Menu from "./partials/Menu.vue";
 
 export default {
   name: 'Header',
   components: {
     Menu,
   },
+
   data() {
     return {
       store
-    }
+    } 
   },
 
+  methods: {
+    getImagePath(imgPath) {
+      return new URL(imgPath, import.meta.url).href;
+    }
+  },
 }
 </script>
 
+
 <template>
-  <div class="header">
 
-    <div class="logo">
-      <img src="../assets/img/logotype.png" alt="">
+  <div class="header-content ">
+    <div class="container flex justify-between align-end">
+
+      <div class="logo">
+        <img :src="getImagePath(`../assets/${store.logo.header}`)" alt="logo">
+      </div>
+
+      <Menu :menu="store.menu"/>
+
     </div>
-
-    <Menu :sections="store.sections"/>
-
   </div>
+
 </template>
 
-<style lang="scss">
 
-@use '../scss/partials/utilities' as *;
+<style lang="scss">
 @use '../scss/partials/vars' as *;
 
-.header {
-  @include flex-between;
-  @include container;
+.header-content {
+  height: 80px;
+  width: 100%;
   position: absolute;
   z-index: 999;
-  height: 80px;
-  right: 0;
-  left: 0;
-  .logo {
-    height: 50px;
-    display: flex;
-    align-items: end;
-    img {
-      height: 25px
-    }
+
+  .logo img {
+    height: 20px;
   }
-  .menu {
+  ul {
+    gap: 40px;
+    a {
+      color: $text-bglight-subtitle2;
+    }
     li {
-      height: 50px;
-      display: flex;
-      align-items: end;
+      padding-top: 35px;
       border-top: 2px solid rgba(255, 255, 255, 0);
-      a {
-        color: $bg-arrows;
-      }
-      
       &:hover {
         border-top: 2px solid rgba(255, 255, 255, 1);
         a {
@@ -68,7 +68,6 @@ export default {
       }
     }
   }
-
 }
 
 </style>

@@ -1,47 +1,132 @@
 import { reactive } from 'vue'
 
 export const store = reactive({
+
+  /* ----- TITOLI DELLE SECTION ----- */
   sections: [
     {
       title: 'home',
       titleSecond: 'alway the best way you need it',
       subtitle: 'the best business consulting',
-      text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque minus, repellat nesciunt, dolorum adipisci non, accusantium animi ad odio deleniti exercitationem quia sunt totam corporis impedit eaque? Velit, odio tempore?',
-      button: 'read more'
+      text: 'When, while lovely valley teems with vapour around meand eridian sun strikes the upper impenetrable foliage of my trees, and but.',
     },
     {
       title: 'about us',
+      titleSecond: null,
       subtitle: 'we make your stategy work',
-      text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque minus, repellat nesciunt, dolorum adipisci non, accusantium animi ad odio deleniti exercitationem quia sunt totam corporis impedit eaque? Velit, odio tempore?',
-      button: null
+      text: 'When, while lovely valley teems with vapour around meand eridian sun strikes the upper impenetrable foliage of my trees, and but.',
     },
     {
       title: 'project',
-      subtitle: 'our expert trusted consultans help clients',
+      titleSecond: null,
+      subtitle: 'our expert trusted consultans <br>help clients',
       text: null,
-      button: [
-        '<i class="fa-solid fa-arrow-left"></i>',
-        '<i class="fa-solid fa-arrow-right"></i>'
-      ]
     },
     {
       title: 'testimonial',
-      subtitle: 'what\'s the customer say about our work',
+      titleSecond: 'alway the best way you need it',
+      subtitle: 'what\'s the customer say<br>about our work',
       text: null,
-      button: null
     },
     {
       title: 'blog',
+      titleSecond: 'alway the best way you need it',
       subtitle: 'the recent news you must read it',
       text: '',
-      button: 'view all'
     },
     {
       title: 'contact',
+      titleSecond: 'alway the best way you need it',
       subtitle: 'let\'s talk about work',
-      text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque minus, repellat nesciunt, dolorum adipisci non, accusantium animi ad odio deleniti exercitationem quia sunt totam corporis impedit eaque? Velit, odio tempore?',
-      button: 'get started'
+      text: 'When, while lovely valley teems with vapour around meand eridian sun strikes the upper impenetrable foliage of my trees, and but.',
     }
   ],
 
+
+  /* ----- SERVIZI ----- */
+  services: [
+    {
+      title: 'statistical consulting',
+      text: 'When, while lovely valley teems with vapour around meand eridian sun strikes the upper impenetrable foliage of my trees, and but.',
+      icon: 'fa-solid fa-chart-line'
+    },
+    {
+      title: 'digital consulting',
+      text: 'When, while lovely valley teems with vapour around meand eridian sun strikes the upper impenetrable foliage of my trees, and but.',
+      icon: 'fa-solid fa-bullhorn'
+    },
+    {
+      title: 'banking conuslting consulting',
+      text: 'When, while lovely valley teems with vapour around meand eridian sun strikes the upper impenetrable foliage of my trees, and but.',
+      icon: 'fa-solid fa-wallet'
+    },
+    {
+      title: 'enterprise consulting',
+      text: 'When, while lovely valley teems with vapour around meand eridian sun strikes the upper impenetrable foliage of my trees, and but.',
+      icon: 'fa-solid fa-bullseye'
+    },
+  ],
+
+
+  /* ----- LOGHI ----- */
+  logo: {
+    header: 'img/logotype.png',
+    footer: 'img/logotype-2-139x23.png',
+  },
+
+
+  /* ----- MENU ----- */
+  menu: [
+    'home',
+    'about',
+    'projects',
+    'services',
+    'blog',
+    'contact'
+  ],
+
+
+  /* ----- BUTTON ----- */
+  buttons: [
+    'read more',
+    'get started',
+    'view all',
+    'get started',
+  ],
+
+
+  /* ----- BLOG ----- */
+  blogCards: [
+    {
+      image: 'img/business-people-working-together-on-project-and-5FHSKBL-1390.jpg',
+      date: null,
+      title: null,
+      text: null
+    }, {
+      image: 'img/startup-business-people-and-strategy-board-PAJ3P9K-1390x1042.jpg',
+      date: null,
+      title: null,
+      text: null
+    }
+  ],
+
+  /* ----- TESTIMOMIAL ----- */
+  testimonialCards: [
+    {
+      text: 'When, while lovely valley teems with vapour around meand eridian sun strikes the upper impenetrable foliage of my trees, and but.',
+      name: 'Vera Duncan',
+      company: 'Amazon Inc.',
+      image: 'img/oliver-ragfelt-488196-2.jpg'
+    }, {
+      text: 'When, while lovely valley teems with vapour around meand eridian sun strikes the upper impenetrable foliage of my trees, and but.',
+      name: 'Vera Duncan',
+      company: 'Amazon Inc.',
+      image: 'img/oliver-ragfelt-488196-unsplash.jpg'
+    }, {
+      text: 'When, while lovely valley teems with vapour around meand eridian sun strikes the upper impenetrable foliage of my trees, and but.',
+      name: 'Vera Duncan',
+      company: 'Amazon Inc.',
+      image: 'img/12679.jpg'
+    }
+  ]
 })

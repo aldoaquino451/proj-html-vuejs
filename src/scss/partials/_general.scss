@@ -1,4 +1,6 @@
 @use './vars' as *;
+@use '@fontsource/comfortaa' as *;
+// @use '@fontsource/lato' as *;
 
 * {
   margin: 0;
@@ -9,6 +11,9 @@
 body {
   min-height: 100vh;
   background-color: $bg-blue;
+  color: $text-bgdark-title;
+  // font-family: 'Comfortaa', sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
 li {
@@ -17,5 +22,11 @@ li {
 
 a {
   text-decoration: none;
-  color: black;
+  color: $text-bgdark-title;
+}
+
+p {
+  line-height: 1.7rem;
+  font-size: 1.2rem;
+  color: $text-bgdark-subtitle;
 }

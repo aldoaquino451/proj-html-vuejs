@@ -11,17 +11,19 @@ export default {
   data() {
     return {
       store,
-      logo: 'logotype-2-139x23.png',
-      icons: [
-        '<i class="fa-brands fa-instagram"></i>',
-        '<i class="fa-brands fa-linkedin-in"></i>',
-        '<i class="fa-brands fa-facebook-f"></i>',
-        '<i class="fa-brands fa-twitter"></i>'
+
+      copyright: 'Copyright @2020 Phlox Consulting. All Rights Reservede.',
+      moreInfos: [ 
+        'Privacy', 
+        'Environmental', 
+        'Policy' 
       ],
-      infoSite: { 
-        terms: ['Privacy', 'Environmental', 'Policy'], 
-        copyright: 'Copyright @2020 Phlox Consulting. All Rights Reservede.'
-      }
+      socials: [
+        'fa-brands fa-instagram',
+        'fa-brands fa-linkedin-in',
+        'fa-brands fa-facebook-f',
+        'fa-brands fa-twitter'
+        ]
     }
   },
 
@@ -34,62 +36,73 @@ export default {
 </script>
 
 <template>
-  <div class="footer">
+  <div class="footer-content container">
 
-    <div class="footer-top">
+    <div class="footer-top flex justify-between">
+
       <div class="logo">
-        <img :src="getImagePath(`../assets/img/${logo}`)" alt="logo">
+        <img :src="getImagePath(`../assets/${store.logo.footer}`)" alt="logo">
       </div>
-      <Menu :sections="store.sections"/>
-      <ul class="icons">
-        <li 
-          v-for="(icon, index) in icons"
-          :key="index">
-            <a href="#" v-html="icon"></a>
+
+      <Menu :menu="store.menu"/>
+
+      <ul class="socials flex">
+        <li v-for="(item, index) in socials" :key="index"> 
+            <a href="#"><i :class="item"></i></a>
         </li>
       </ul>
+
     </div>
 
-    <div class="footer-bottom">
-      <div>
-        <p>Terms of use</p>
-        <ul>
-          <li
-            v-for="(term, index) in infoSite.terms"
-            :key="index">
-            <a href="#">{{ term }}</a>
+    <div class="footer-bottom ">
+
+      <p>Terms of use</p>
+
+      <div class="flex justify-between">
+        <ul class="flex gap-10">
+          <li v-for="(item, index) in moreInfos" :key="index">
+            <a href="#"> {{ item }} </a>
           </li>  
         </ul>
+
+        <p> {{ copyright }} </p>
       </div>
-      <p>{{ infoSite.copyright }}</p>
+
     </div>
 
   </div>
 </template>
 
 <style lang="scss">
-@use  '../scss/partials/utilities' as *;
+@use '../scss/partials/vars' as *;
 
-.footer {
-  @include container;
+
+.footer-content {
+  color: $text-bglight-subtitle;
+  
+  a {
+    color: $text-bglight-subtitle;
+    &:hover {
+      color: $text-bgdark-title;
+    }
+  }
+
   .footer-top {
-    @include flex-between;
     padding: 80px 0;
-    .icons {
-      @include flex-between;
-      gap: 10px;
-      font-size: 20px;
+    .socials {
+      gap: 20px;
       a {
-        color: white
+        font-size: 1.2rem;
+        color: $text-bgdark-title;
       }
     }
   }
+
   .footer-bottom {
-    @include flex-between;
     padding: 35px 0;
-    border-top: 2px solid black;
-    ul {
-      @include flex-row;
+    border-top: 1px solid $text-bgdark-subtitle;
+    p {
+      margin-bottom: 8px;
     }
   }
 }

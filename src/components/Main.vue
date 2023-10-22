@@ -1,149 +1,301 @@
 <script>
+import { store } from '../data/store';
+import LinkButton from './partials/LinkButton.vue';
+import Service from './partials/Service.vue';
+import TitleSection from './partials/TitleSection.vue';
+import BlogCard from './partials/BlogCard.vue';
+import TestimonialCard from './partials/TestimonialCard.vue';
 
 export default {
   name: 'Main',
+  components: {
+    LinkButton,
+    Service,
+    TitleSection,
+    BlogCard,
+    TestimonialCard
+  },
+  data() {
+    return {
+      store,
+    }
+  },
+
 }
 </script>
 
 <template>
-  <div class="main">
+  <div class="main" >
 
+
+    <!----- #1 - HOME ----->
     <section id="home">
-      <div class="home-content">HOME</div>
+      <div class="home-content container">home</div>
+      <LinkButton :textButton="store.buttons[0]" size="big" color="green" />
     </section>
+
+
+    <!----- #2 - SERVIZI OFFERTI ----->
     <section id="services">
-      <div class="info-content">
+      <div class="services-title">
         <p class="">titolo</p>
       </div>
-      <div class="cards">
-        <p class="card">cards</p>
-        <p class="card">cards</p>
-        <p class="card">cards</p>
-        <p class="card">cards</p>
+      <div class="services-cards">
+        <Service 
+          v-for="(service, index) in store.services"
+          :key="index" 
+          :service="service"/>
       </div>
     </section>
 
+
+    <!----- #3 - ABOUT US ----->
     <section id="about">
-      <div class="about-us-content">
-        <p>about-us</p>
+      <div class="container h-100 flex justify-end align-center">
+        <div class="about-content">
+          <TitleSection :sectionObj="store.sections[1]" />
+        </div>
       </div>
     </section>
 
-    <section id="get-started">
-      <div class="get-started-content">
-        <p>primo testo</p>
-        <p>secondo testo</p>
+
+    <!----- #4 - GET STARTED ----->
+    <section id="get-started" class=" container-left">
+      <div class="get-started-content flex">
+        <h3 class="uppercase">we help to deliver the business case</h3>
+        <p>When, while lovely valley teems with vapour around meand eridian sun strikes the upper impenetrable foliage of my trees, and but.</p>
       </div>
-      <div class="button">botton</div>
-    </section>
-    
-    <section id="projects">
-      <p>project</p>
+      <LinkButton :textButton="store.buttons[1]" size="small" color="red" />
     </section>
 
-    <section id="testimonial">
-      testimonial
+
+    <!----- #5 - PROGETTI ----->
+    <section id="projects" class="container">
+      <div class="projects-top flex justify-between align-end">
+        <TitleSection :sectionObj="store.sections[2]" />
+        <div class="flex gap-10"> 
+          <i class="arrow-btn fa-solid fa-arrow-left"></i>
+          <i class="arrow-btn fa-solid fa-arrow-right"></i>
+        </div>
+      </div>
+
+      <div class="slider">
+        slider
+      </div>
     </section>
 
-    <section id="blog">
-      blog
+
+    <!----- #6 - TESTIMONIAL ----->
+    <section id="testimonial" class="flex col">
+      <div class="testimonial-top container">
+        <TitleSection :sectionObj="store.sections[3]" />
+      </div>
+      <div class="testimonial-cards container-rigth flex">
+        <TestimonialCard 
+          v-for="(testimonial, index) in store.testimonialCards" 
+          :key="index"
+          :testiamonial="testimonial" />
+      </div>
     </section>
 
+
+    <!----- #7 - BLOG ----->
+    <section id="blog" class="container">
+      <div class="blog-top flex justify-between align-end">
+        <TitleSection :sectionObj="store.sections[4]" />
+        <LinkButton :textButton="store.buttons[2]" size="big" color="green" /> 
+      </div>
+      <div class="blog-cards flex">
+        <BlogCard 
+          v-for="(item, index) in store.blogCards"
+          :key="index"
+          :image="item.image" />
+      </div>
+    </section>
+
+
+    <!----- #8 - CONTATTI ----->
     <section id="contact">
-      <div class="lets-talk-content">lets talk</div>
+      <div class="contact-content">
+        <h3 class="uppercase">let's talk about work</h3>
+        <p>A wonderfulserenity has taken possession far far away, behind the words mountains.</p>
+        <LinkButton :textButton="store.buttons[3]" size="small" color="blu" />
+      </div>
     </section>
+
 
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 @use '../scss/partials/utilities' as *;
 @use '../scss/partials/vars' as *;
 
 .main {
-  section {
-    border: 1px solid black;
-  }
+
+/* ----- #1 - HOME ----- */
   #home {
     padding: calc(230px + $height-header) 0 230px;
-    background-image: url('../assets/img/portrait-of-young-architect-woman-on-meeting-KFZCE3A.jpg');
+    background-image: url(
+      '../assets/img/portrait-of-young-architect-woman-on-meeting-KFZCE3A.jpg'
+    );
     background-repeat: no-repeat;
     background-position: top right;
     background-size: 66%;
-    .home-content {
-      @include container;
-    }
   }
+
+/* ----- #2 - SERVIZI ----- */
   #services {
-    padding: 150px 0 210px 350px;
+    padding: 150px 0 80px 350px;
     background-color: $bg-white;
-    .info-content {
+    .services-title {
       margin-bottom: 150px;
     }
-    .cards {
-      padding-right:   350px;
+    .services-cards {
+      margin-right: 350px;
       display: flex;
-      flex-wrap: wrap;  
-      gap: 250px;
-      .card {
-        min-width: 350px;
+      flex-wrap: wrap; 
+      justify-content: space-between; 
+      .service {
+        width: 500px;
+        margin-bottom: 130px;
       }
     }
   }
+
+/* ----- #3 - ABOUT US ----- */  
   #about {
-    display: flex;
-    align-items: center;
-    background-image: url('../assets/img/business-people-working-together-on-project-and-5FHSKBL.jpg');
-    background-size: 55%;
+    height: 850px;
+    background-image: url(
+      '../assets/img/business-people-working-together-on-project-and-5FHSKBL.jpg'
+    );
+    background-size: 1100px;
     background-repeat: no-repeat;
-    background-position: top left;
-    padding: 240px 0;
-    .about-us-content {
-      margin: 0 250px 0 auto;
-      width: 500px;
+    .about-content {
+      width: 550px;
+      padding: 50px 0;
+      h2:after {
+        display: none;
+      }
+      h4 {
+        font-size: 4rem;
+        margin-bottom: 40px;
+      }
     }
   }
-  #get-started {
-    @include container-left;
-    @include flex-center-j;
-    padding: 110px 0 130px;
-    position: relative;
-    background-color: $bg-green;
-    color: $bg-blue;
-    .get-started-content {
-      @include flex-row;
-      gap: 250px;
 
+/* ----- #4 - GET STARTED ----- */
+  #get-started {
+    margin-bottom: 220px;
+    padding: 110px 0 130px;
+    background-color: $bg-green;
+    position: relative;
+    .get-started-content {
+      margin: 0 360px;
+      gap: 250px;
+      h3 {
+        width: 40%;
+        font-size: 2rem;
+        font-weight: 700;
+        color: $bg-blue;
+      }
+      p {
+        width: 50%;
+        color: $bg-blue;
+      }
     }
-    .button {
+    .btn {
       position: absolute;
       bottom: 0;
       right: 0;
-      background-color: $bg-red;
-    }
-  }
-  #projects {
-    @include container;
-    margin-top: 220px;
-    margin-bottom: 170px;
-  }
-  #testimonial {
-    @include container-rigth;
-    margin-bottom: 250px;
-  }
-  #blog {
-    @include container;
-    margin-bottom: 160px;
+    } 
   }
 
+/* ----- #5 - PROGETTI ----- */
+  #projects {
+    margin-bottom: 170px;
+    .projects-top {
+      margin-bottom: 50px;
+      h2::after {
+        display: none;
+      }
+      .arrow-btn {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 20px;
+        text-align: center;
+        background-color: $bg-arrows;
+      } 
+    }
+  }
+
+/* ----- #6 - TESTIMONIAL ----- */
+  #testimonial {
+    margin-bottom: 250px; 
+    .testimonial-top {
+      margin-bottom: 50px;
+      .title-section {
+        h2 {
+          justify-content: space-between;
+          &:before {
+            background-color: $bg-blue;
+          }
+        }
+        h4 {
+          text-align: end;
+        }
+      }
+    }
+    .testimonial-cards {
+      padding-right: 10%;
+      background-color: $bg-white;
+    }
+  }
+
+/* ----- #7 - BLOG ----- */
+  #blog {
+    margin-bottom: 340px;
+    .blog-top {
+      margin-bottom: 60px;
+      h2::after {
+        display: none;
+      }
+      .btn {
+        color: $bg-blue;
+        background-color: $bg-green;
+      }
+    }
+    .blog-cards {
+      gap: 30px;
+      .card {
+        width: 50%;
+      }
+    }
+  }
+
+/* ----- #8 - CONTATTI ----- */
   #contact {
     padding: 160px 0 100px 0;
-    background-image: url('../assets/img/business-people-working-together-on-project-and-B3MZ4TX.jpg');
-    background-repeat: no-repeat;
-    background-size: 100%;
+    background-image: url(
+      '../assets/img/business-people-working-together-on-project-and-B3MZ4TX.jpg'
+    );
     .contact-content {
       width: 600px;
       margin: 0 auto;
+      text-align: center;
+      h3 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+      }
+      p {
+        color: $text-bglight-subtitle2;
+        margin-bottom: 25px;
+        padding: 0 30px ;
+      }
+      .btn {
+        margin: 0 auto;
+      }
     }
   }
 }
