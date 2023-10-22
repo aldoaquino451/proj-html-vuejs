@@ -1,9 +1,8 @@
 <script>
 export default {
   name: 'BlogCard',
-  props: {
-    image: String
-  },
+  props: { blogCardObj: Object },
+  
   methods: {
     getImagePath(imagePath) {
       return new URL(imagePath, import.meta.url).href
@@ -17,15 +16,15 @@ export default {
   <div class="card">
     <!-- <img v-for="image in images" :src="getImagePath(image)" alt="progetto"> -->
     <img 
-      :src="getImagePath(`../../assets/${image}`)" 
+      :src="getImagePath(`../../assets/${blogCardObj.image}`)" 
       alt="progetto">
     <div class="description">
       <div class="date flex gap-20">
-        <span>july 4, 2019</span>
-        <span>by paul</span>
+        <span> {{ blogCardObj.date[0] }} </span>
+        <span> {{ blogCardObj.date[1] }} </span>
       </div>
-      <p class="title"><strong>Canadian Consulting Film acquired by UK Giant</strong></p>
-      <p>When, while lovely valley teems with vapour around meand eridian sun strikes the upper impenetrable foliage of my trees, and but.</p>
+      <p class="title"><strong> {{ blogCardObj.title }} </strong></p>
+      <p> {{ blogCardObj.text }} </p>
     </div>
   </div>
 </template>
@@ -42,7 +41,7 @@ export default {
   .description {
     padding: 50px 150px 50px 90px;
     position: absolute;
-    bottom: -100px;
+    top: 62%;
     right: 0;
     width: 80%;
     background-color: $bg-white;

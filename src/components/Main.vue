@@ -8,30 +8,24 @@ import TestimonialCard from './partials/TestimonialCard.vue';
 
 export default {
   name: 'Main',
-  components: {
-    LinkButton,
-    Service,
-    TitleSection,
-    BlogCard,
-    TestimonialCard
-  },
+  components: { LinkButton, Service, TitleSection, BlogCard, TestimonialCard },
   data() {
-    return {
-      store,
-    }
+    return { store }
   },
-
 }
 </script>
 
-<template>
-  <div class="main" >
 
+<template>
+
+  <div class="main" >
 
     <!----- #1 - HOME ----->
     <section id="home">
-      <div class="home-content container">home</div>
-      <LinkButton :textButton="store.buttons[0]" size="big" color="green" />
+      <div class="container">
+        <TitleSection />
+        <LinkButton :textButton="store.buttons[0]" size="big" color="green" />
+      </div>
     </section>
 
 
@@ -107,9 +101,9 @@ export default {
       </div>
       <div class="blog-cards flex">
         <BlogCard 
-          v-for="(item, index) in store.blogCards"
+          v-for="(card, index) in store.blogCards"
           :key="index"
-          :image="item.image" />
+          :blogCardObj="card" />
       </div>
     </section>
 
@@ -119,12 +113,12 @@ export default {
       <div class="contact-content">
         <h3 class="uppercase">let's talk about work</h3>
         <p>A wonderfulserenity has taken possession far far away, behind the words mountains.</p>
-        <LinkButton :textButton="store.buttons[3]" size="small" color="blu" />
+        <LinkButton :textButton="store.buttons[3]" size="small" color="blue" />
       </div>
     </section>
 
-
   </div>
+
 </template>
 
 <style lang="scss" >
@@ -239,7 +233,7 @@ export default {
         h2 {
           justify-content: space-between;
           &:before {
-            background-color: $bg-blue;
+            visibility: hidden;
           }
         }
         h4 {
@@ -260,10 +254,6 @@ export default {
       margin-bottom: 60px;
       h2::after {
         display: none;
-      }
-      .btn {
-        color: $bg-blue;
-        background-color: $bg-green;
       }
     }
     .blog-cards {

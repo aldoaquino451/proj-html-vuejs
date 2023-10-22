@@ -1,9 +1,11 @@
 <script>
 export default {
   name: 'Menu',
-  props: {
-    menu: Array,
-  }
+  data() {
+    return {
+      menu: [ 'home', 'about', 'projects', 'services', 'blog', 'contact' ]
+    }
+  },
 }
 </script>
 
@@ -23,5 +25,15 @@ export default {
 
 <style lang="scss" scoped>
 @use '../../scss/partials/vars' as *;
-
+li {
+  a {
+    color: $text-bglight-subtitle2;
+  }
+  &:hover {
+    border-top-color: $bg-white;
+    a {
+      color: $text-bgdark-title;
+    }
+  }
+}
 </style>

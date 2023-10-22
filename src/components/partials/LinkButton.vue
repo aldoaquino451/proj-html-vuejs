@@ -26,6 +26,7 @@ export default {
 @use '../../scss/partials/vars' as *;
 
 .btn {
+  cursor: pointer;
   padding-top: 23px;
   padding-bottom: 23px;
   width: fit-content;
@@ -40,14 +41,38 @@ export default {
   &.green {
     color: $bg-blue;
     background-color: $bg-green;
+    &:hover {
+      background-color: $bg-red;
+      a {
+        color: $text-bgdark-title;
+      }
+    }
   }
   &.red {
-    color: $text-bgdark-title;
-    background-color: $bg-red;
+    background-color: $bg-red;  
+    a {
+      color: $text-bgdark-title;
+    }
+    &:hover {
+      background-color: $bg-white;
+      a {
+        color: $bg-blue;
+      }
+    }
   }
-  &.blu {
-    color: $text-bgdark-title;
+  &.blue {
     background-color: $bg-blue;
+    a {
+      color: $text-bgdark-title;
+    }
+    &:hover {
+      background-color: $bg-green;
+      a {
+        color: $bg-blue;
+      }
+    }
   }
+
+
 }
 </style>

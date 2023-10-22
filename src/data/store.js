@@ -68,24 +68,6 @@ export const store = reactive({
   ],
 
 
-  /* ----- LOGHI ----- */
-  logo: {
-    header: 'img/logotype.png',
-    footer: 'img/logotype-2-139x23.png',
-  },
-
-
-  /* ----- MENU ----- */
-  menu: [
-    'home',
-    'about',
-    'projects',
-    'services',
-    'blog',
-    'contact'
-  ],
-
-
   /* ----- BUTTON ----- */
   buttons: [
     'read more',
@@ -99,14 +81,14 @@ export const store = reactive({
   blogCards: [
     {
       image: 'img/business-people-working-together-on-project-and-5FHSKBL-1390.jpg',
-      date: null,
-      title: null,
-      text: null
+      date: ['july 4, 2019', 'by paul'],
+      title: 'Canadian Consulting Film acquired by UK Giant',
+      text: 'When, while lovely valley teems with vapour around meand eridian sun strikes the upper impenetrable foliage of my trees, and but.'
     }, {
       image: 'img/startup-business-people-and-strategy-board-PAJ3P9K-1390x1042.jpg',
-      date: null,
-      title: null,
-      text: null
+      date: ['july 4, 2019', 'by paul'],
+      title: 'Canadian Consulting Film acquired by UK Giant',
+      text: 'When, while lovely valley teems with vapour around meand eridian sun strikes the upper impenetrable foliage of my trees, and but.'
     }
   ],
 
