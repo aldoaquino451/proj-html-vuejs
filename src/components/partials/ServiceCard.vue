@@ -1,7 +1,7 @@
 <script>
 
 export default {
-  nama: 'Service',
+  nama: 'ServiceCard',
   props: {
     service: Object
   }
@@ -27,8 +27,9 @@ export default {
 @use '../../scss/partials/vars' as *;
 
 .service {
-  color: $text-bglight-title;
+  color: $bg-blue;
   gap: 50px;
+  width: 40%;
 
   i {
     width: 70px;

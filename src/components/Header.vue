@@ -36,8 +36,10 @@ export default {
 .header-content {
   height: 80px;
   width: 100%;
-  position: absolute;
+  position: fixed;
   z-index: 999;
+  background-color: rgba(31, 30, 56, 0.9);
+  box-shadow: 0px -6px 10px 3px rgba(0, 0, 0, 0.493);
 
   .menu {
     gap: 40px;

@@ -2,23 +2,21 @@
 
 export default {
   nama: 'TitleSection',
-  props: {
-    sectionObj: Object
-  }
+  props: { sectionObj: Object }
 }
 </script>
 
+
 <template>
+
   <div class="title-section">
-
-    <h2 class="uppercase flex align-end gap-20"> {{ sectionObj['title'] }} </h2>
-
-    <h4 class="uppercase" v-html="sectionObj['subtitle']"></h4>
-
-    <p v-if="sectionObj['text']" > {{ sectionObj['text'] }} </p>
-
+    <h2 class="uppercase flex align-end gap-20"> {{ sectionObj.title }} </h2>
+    <h4 class="uppercase" v-html="sectionObj.subtitle"></h4>
+    <p v-if="sectionObj.text" > {{ sectionObj.text }} </p>
   </div>
+
 </template>
+
 
 <style lang="scss" scoped>
 @use '../../scss/partials/vars' as *;

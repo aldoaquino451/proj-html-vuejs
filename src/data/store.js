@@ -5,40 +5,29 @@ export const store = reactive({
   /* ----- TITOLI DELLE SECTION ----- */
   sections: [
     {
-      title: 'home',
-      titleSecond: 'alway the best way you need it',
-      subtitle: 'the best business consulting',
-      text: 'When, while lovely valley teems with vapour around meand eridian sun strikes the upper impenetrable foliage of my trees, and but.',
+      title: 'alway the best way you need it',
+      subtitle: 'the best <br>business <br>consulting',
+      text: null
     },
     {
       title: 'about us',
-      titleSecond: null,
       subtitle: 'we make your stategy work',
-      text: 'When, while lovely valley teems with vapour around meand eridian sun strikes the upper impenetrable foliage of my trees, and but.',
+      text: 'When, while lovely valley teems with vapour around meand eridian sun strikes the upper impenetrable foliage of my trees, and but. When, while lovely valley teems with vapour around meand eridian sun strikes the upper impenetrable foliage of my trees, and but.'
     },
     {
       title: 'project',
-      titleSecond: null,
       subtitle: 'our expert trusted consultans <br>help clients',
       text: null,
     },
     {
       title: 'testimonial',
-      titleSecond: 'alway the best way you need it',
-      subtitle: 'what\'s the customer say<br>about our work',
+      subtitle: 'what\'s the customer say <br>about our work',
       text: null,
     },
     {
       title: 'blog',
-      titleSecond: 'alway the best way you need it',
       subtitle: 'the recent news you must read it',
-      text: '',
-    },
-    {
-      title: 'contact',
-      titleSecond: 'alway the best way you need it',
-      subtitle: 'let\'s talk about work',
-      text: 'When, while lovely valley teems with vapour around meand eridian sun strikes the upper impenetrable foliage of my trees, and but.',
+      text: null,
     }
   ],
 
@@ -110,5 +99,28 @@ export const store = reactive({
       company: 'Amazon Inc.',
       image: 'img/12679.jpg'
     }
+  ],
+
+  /* ----- PROJECT ----- */
+  projectCard: [
+    {
+      image: '221bf0b7-8134-43bb-936a-5acbe42db64a-790x592.jpg',
+      name: 'Purinky Products',
+      category: 'uncategorized',
+      isVisible: false
+    },
+    {
+      image: 'DRY-1-790x592.jpg',
+      name: 'Purinky Products',
+      category: 'uncategorized',
+      isVisible: false
+    },
+    {
+      image: 'z1el4c4p-790x592.jpg',
+      name: 'Purinky Products',
+      category: 'uncategorized',
+      isVisible: false
+    }
   ]
+
 })

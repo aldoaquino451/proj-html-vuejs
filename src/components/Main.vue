@@ -1,14 +1,22 @@
 <script>
 import { store } from '../data/store';
 import LinkButton from './partials/LinkButton.vue';
-import Service from './partials/Service.vue';
+import ServiceCard from './partials/ServiceCard.vue';
 import TitleSection from './partials/TitleSection.vue';
 import BlogCard from './partials/BlogCard.vue';
 import TestimonialCard from './partials/TestimonialCard.vue';
+import ProjectCard from './partials/ProjectCard.vue';
 
 export default {
   name: 'Main',
-  components: { LinkButton, Service, TitleSection, BlogCard, TestimonialCard },
+  components: { 
+    LinkButton, 
+    ServiceCard, 
+    TitleSection, 
+    BlogCard, 
+    TestimonialCard, 
+    ProjectCard 
+  },
   data() {
     return { store }
   },
@@ -22,20 +30,27 @@ export default {
 
     <!----- #1 - HOME ----->
     <section id="home">
-      <div class="container">
-        <TitleSection />
-        <LinkButton :textButton="store.buttons[0]" size="big" color="green" />
+      <div class="home-content container">
+        <TitleSection :sectionObj="store.sections[0]" />
+        <div class="flex align-end">
+          <LinkButton :textButton="store.buttons[0]" size="big" color="green" />
+          <a class="play-button flex center" href="#">
+            <i class="fa-solid fa-play"></i>
+          </a>
+          <div >
+          </div>
+        </div>
       </div>
     </section>
 
 
     <!----- #2 - SERVIZI OFFERTI ----->
     <section id="services">
-      <div class="services-title">
-        <p class="">titolo</p>
+      <div class="services-top">
+        <h2 class="title uppercase flex align-center">our consultans can help you</h2>
       </div>
-      <div class="services-cards">
-        <Service 
+      <div class="services-cards container-md flex">
+        <ServiceCard 
           v-for="(service, index) in store.services"
           :key="index" 
           :service="service"/>
@@ -73,8 +88,11 @@ export default {
         </div>
       </div>
 
-      <div class="slider">
-        slider
+      <div class="slider flex">
+        <ProjectCard
+          v-for="(project, index) in store.projectCard"
+          :key="index"
+          :project="project" />
       </div>
     </section>
 
@@ -136,24 +154,60 @@ export default {
     background-repeat: no-repeat;
     background-position: top right;
     background-size: 66%;
+    .title-section {
+      h2 {
+        font-size: 1.2rem;
+        &::after {
+          display: none;
+        }
+      }
+      h4 {
+        font-size: 6rem;
+        line-height: 5.2rem;
+        margin-bottom: 50px;
+      }
+    }
+    .play-button {
+      width: 55px;
+      height: 55px;
+      margin-left: 35px;
+      border: 2px solid white;
+      border-radius: 50%;
+      .fa-play {
+        color: $bg-green;
+      }
+
+      &:hover {
+        scale: 1.1;
+      }
+    }
   }
 
 /* ----- #2 - SERVIZI ----- */
   #services {
-    padding: 150px 0 80px 350px;
     background-color: $bg-white;
-    .services-title {
-      margin-bottom: 150px;
+    padding-bottom: 210px;
+    .services-top {
+      padding: 150px 0;
+      .title {
+        margin-left: 350px;
+        gap: 40px;
+        font-size: 1.8rem;
+        color: $bg-blue;
+
+        &::after {
+          content: '';
+          flex-grow: 1;
+          height: 3px;
+          border-radius: 3px;
+          background-color: $bg-green;
+        }
+      }
     }
     .services-cards {
-      margin-right: 350px;
-      display: flex;
       flex-wrap: wrap; 
-      justify-content: space-between; 
-      .service {
-        width: 500px;
-        margin-bottom: 130px;
-      }
+      row-gap: 130px ;
+      column-gap: 20%;
     }
   }
 
@@ -221,6 +275,9 @@ export default {
         text-align: center;
         background-color: $bg-arrows;
       } 
+    }
+    .slider {
+      gap: 30px;
     }
   }
 

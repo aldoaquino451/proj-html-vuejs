@@ -1,34 +1,28 @@
 <script>
-
 export default {
   nama: 'LinkButton',
-  props: {
-    textButton: String,
-    size: String,
-    color: String
-  },
-  data() {
-    return {
-    }
-  },
+  props: { textButton: String, size: String, color: String },
 }
 </script>
 
+
 <template>
-  <div class="btn" :class="color, size">
-    <a class="uppercase" href="#">
+  <div>
+    <a
+      href="#"
+      class="btn flex uppercase"
+      :class="color, size">
       {{ textButton }}
     </a>
   </div>
 </template>
 
+
 <style lang="scss" scoped>
 @use '../../scss/partials/vars' as *;
 
 .btn {
-  cursor: pointer;
-  padding-top: 23px;
-  padding-bottom: 23px;
+  padding: 23px 0;
   width: fit-content;
   &.big {
     padding-left: 58px;
@@ -43,36 +37,24 @@ export default {
     background-color: $bg-green;
     &:hover {
       background-color: $bg-red;
-      a {
-        color: $text-bgdark-title;
-      }
+      color: $text-bgdark-title;
     }
   }
   &.red {
     background-color: $bg-red;  
-    a {
-      color: $text-bgdark-title;
-    }
+    color: $text-bgdark-title;
     &:hover {
       background-color: $bg-white;
-      a {
-        color: $bg-blue;
-      }
+      color: $bg-blue;
     }
   }
   &.blue {
     background-color: $bg-blue;
-    a {
-      color: $text-bgdark-title;
-    }
+    color: $text-bgdark-title;
     &:hover {
       background-color: $bg-green;
-      a {
-        color: $bg-blue;
-      }
+      color: $bg-blue;
     }
   }
-
-
 }
 </style>

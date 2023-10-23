@@ -15,7 +15,6 @@ export default {
   },
   methods: { 
     getImagePath(imgPath) {
-      console.log(this.position);
       return new URL(imgPath, import.meta.url).href;
     }
   },
