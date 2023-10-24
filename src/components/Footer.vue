@@ -1,5 +1,4 @@
 <script>
-import { store } from "../data/store"
 import Menu from "./partials/Menu.vue";
 import Socials from "./partials/Socials.vue";
 import Logo from "./partials/Logo.vue";
@@ -10,7 +9,6 @@ export default {
 
   data() {
     return {
-      store,
       copyright: 'Copyright @2020 Phlox Consulting. All Rights Reservede.',
       moreInfos: [ 'Privacy', 'Environmental', 'Policy' ]
     }

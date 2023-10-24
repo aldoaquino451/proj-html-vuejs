@@ -9,21 +9,16 @@ export default {
     },
   },
 }
-
-// abbiamo 4 elementi ma ne voglio visualizzare solo 3
-// tutti gli elementi non visualizzati avranno la classe hidden
-// per sapere a quale card applicare la classe hidden utilizziamo un counter
-// il valore di deafult del counter è 0, 1, 2
-// al click sul arrow button right il counter divewnterà 1, 2, 3 
-// alla card 0 verrà applicato la classe hidden menntre 
 </script>
 
 
 <template>
-  <div v-if="project.isHidden" class="card" >
+  <div class="card" >
+
     <img
       :src="getImagePath(`../../assets/img/${project.image}`)"
       alt="image">
+
     <div class="card-description flex align-end">
       <div class="flex w-100 justify-between">
         <div class="text flex col">
@@ -35,6 +30,7 @@ export default {
         </button>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -80,10 +76,6 @@ export default {
       color: $text-bgdark-title;
       cursor: pointer;
     }
-  }
-
-  &.hidden {
-    display: none;
   }
 
   &:hover .card-description{

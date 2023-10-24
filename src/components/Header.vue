@@ -1,17 +1,10 @@
 <script>
-import { store } from "../data/store";
 import Menu from "./partials/Menu.vue";
 import Logo from "./partials/Logo.vue";
 
 export default {
   name: 'Header',
   components: { Menu, Logo },
-
-  data() {
-    return {
-      store
-    } 
-  },
 }
 </script>
 
@@ -36,10 +29,10 @@ export default {
 .header-content {
   height: 80px;
   width: 100%;
-  position: fixed;
+  position: absolute;
   z-index: 999;
-  background-color: rgba(31, 30, 56, 0.9);
-  box-shadow: 0px -6px 10px 3px rgba(0, 0, 0, 0.493);
+  // background-color: rgba(31, 30, 56, 0.9);
+  // box-shadow: 0px -6px 10px 3px rgba(0, 0, 0, 0.493);
 
   .menu {
     gap: 40px;

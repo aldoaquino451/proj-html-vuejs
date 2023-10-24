@@ -1,8 +1,8 @@
 <script>
 import { store } from '../data/store';
 import LinkButton from './partials/LinkButton.vue';
-import ServiceCard from './partials/ServiceCard.vue';
 import TitleSection from './partials/TitleSection.vue';
+import ServiceCard from './partials/ServiceCard.vue';
 import BlogCard from './partials/BlogCard.vue';
 import TestimonialCard from './partials/TestimonialCard.vue';
 import ProjectCard from './partials/ProjectCard.vue';
@@ -11,42 +11,17 @@ export default {
   name: 'Main',
   components: { 
     LinkButton, 
-    ServiceCard, 
     TitleSection, 
+    ServiceCard, 
     BlogCard, 
     TestimonialCard, 
-    ProjectCard 
+    ProjectCard, 
   },
   data() {
     return { 
       store,
-      counterArr: [ 1, 2 ]
     }
-  },
-  methods: {
-    checkIndex() {
-      store.projectCards.forEach( (project, index) => {
-        if ( this.counterArr.includes(index)) project.isHidden = true
-        console.log(project.isHidden); 
-      });
-    },
-    changeCounter(isRight) {
-      if (isRight)  {
-        this.counterArr.forEach( number => {
-          number += 1;
-        })
-      }
-      if (!isRight)  {
-        this.counterArr.forEach( number => {
-          number += -1;
-        })
-      }
-      console.log(this.counterArr);
-    }
-  },
-  mounted() {
-    this.checkIndex()
-  },
+  }
 }
 </script>
 
@@ -58,7 +33,9 @@ export default {
     <!----- #1 - HOME ----->
     <section id="home">
       <div class="home-content container">
+
         <TitleSection :sectionObj="store.sections[0]" />
+
         <div class="flex align-end">
           <LinkButton :textButton="store.buttons[0]" size="big" color="green" />
           <a class="play-button flex center" href="#">
@@ -67,21 +44,25 @@ export default {
           <div >
           </div>
         </div>
+
       </div>
     </section>
 
 
     <!----- #2 - SERVIZI OFFERTI ----->
     <section id="services">
+
       <div class="services-top">
-        <h2 class="title uppercase flex align-center">our consultans can help you</h2>
+        <TitleSection :sectionObj="store.sections[1]" />
       </div>
+
       <div class="services-cards container-md flex">
         <ServiceCard 
-          v-for="(service, index) in store.services"
+          v-for="(service, index) in store.serviceCards"
           :key="index" 
           :service="service"/>
       </div>
+
     </section>
 
 
@@ -89,7 +70,7 @@ export default {
     <section id="about">
       <div class="container h-100 flex justify-end align-center">
         <div class="about-content">
-          <TitleSection :sectionObj="store.sections[1]" />
+          <TitleSection :sectionObj="store.sections[2]" />
         </div>
       </div>
     </section>
@@ -98,10 +79,7 @@ export default {
     <!----- #4 - GET STARTED ----->
     <section id="get-started">
       <div class="get-started-container container-left">
-        <div class="get-started-content flex">
-          <h3 class="uppercase">we help to deliver the business case</h3>
-          <p>When, while lovely valley teems with vapour around meand eridian sun strikes the upper impenetrable foliage of my trees, and but.</p>
-        </div>
+        <TitleSection class="flex" :sectionObj="store.sections[3]" />
         <LinkButton :textButton="store.buttons[1]" size="small" color="red" />
       </div>
     </section>
@@ -111,10 +89,10 @@ export default {
     <section id="projects">
       <div class="container">
         <div class="projects-top flex justify-between align-end">
-          <TitleSection :sectionObj="store.sections[2]" />
+          <TitleSection :sectionObj="store.sections[4]" />
           <div class="flex gap-10"> 
-            <i @click="changeCounter(false)" class="arrow-btn fa-solid fa-arrow-left"></i>
-            <i @click="changeCounter(true)" class="arrow-btn fa-solid fa-arrow-right"></i>
+            <i class="arrow-btn fa-solid fa-arrow-left"></i>
+            <i class="arrow-btn fa-solid fa-arrow-right"></i>
           </div>
         </div>
 
@@ -132,7 +110,7 @@ export default {
     <section id="testimonial">
       <div  class="flex col">
         <div class="testimonial-top container">
-          <TitleSection :sectionObj="store.sections[3]" />
+          <TitleSection :sectionObj="store.sections[5]" />
         </div>
         <div class="testimonial-cards container-rigth flex">
           <TestimonialCard 
@@ -148,7 +126,7 @@ export default {
     <section id="blog">
       <div class="container">
         <div class="blog-top flex justify-between align-end">
-          <TitleSection :sectionObj="store.sections[4]" />
+          <TitleSection :sectionObj="store.sections[6]" />
           <LinkButton :textButton="store.buttons[2]" size="big" color="green" /> 
         </div>
         <div class="blog-cards flex">
@@ -221,21 +199,23 @@ export default {
 /* ----- #2 - SERVIZI ----- */
   #services {
     background-color: $bg-white;
-    padding-bottom: 210px;
+    padding-bottom: 200px;
     .services-top {
-      padding: 150px 0;
-      .title {
+      padding: 130px 0 110px;
+      .title-section {
         margin-left: 350px;
-        gap: 40px;
-        font-size: 1.8rem;
-        color: $bg-blue;
+        h2 {
+          font-size: 1.8rem;
+          color: $bg-blue;
+  
+          &::before {
+            display: none;
+          }
 
-        &::after {
-          content: '';
-          flex-grow: 1;
-          height: 3px;
-          border-radius: 3px;
-          background-color: $bg-green;
+          &::after {
+            flex-grow: 1;
+
+          }
         }
       }
     }
@@ -272,21 +252,16 @@ export default {
     padding-bottom: 100px;
 
     .get-started-container {
-      padding: 110px 0 130px;
+      padding: 130px 0 110px;
       background-color: $bg-green;
       position: relative;
-      .get-started-content {
-        margin: 0 360px;
+      .title-section {
+        margin: 0 auto;
         gap: 250px;
-        h3 {
-          width: 40%;
-          font-size: 2rem;
-          font-weight: 700;
-          color: $bg-blue;
-        }
-        p {
-          width: 50%;
-          color: $bg-blue;
+        width: 60%;
+        color: $bg-blue;
+        h4 {
+          width: 120%;
         }
       }
       .btn {
@@ -342,7 +317,7 @@ export default {
       }
     }
     .testimonial-cards {
-      padding-right: 10%;
+      padding-right: 5%;
       background-color: $bg-white;
     }
   }
@@ -371,6 +346,7 @@ export default {
     background-image: url(
       '../assets/img/business-people-working-together-on-project-and-B3MZ4TX.jpg'
     );
+    background-repeat: no-repeat;
     .contact-content {
       width: 600px;
       margin: 0 auto;

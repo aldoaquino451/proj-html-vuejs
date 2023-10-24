@@ -10,9 +10,19 @@ export const store = reactive({
       text: null
     },
     {
+      title: 'our consultans can help you',
+      subtitle: null,
+      text: null
+    },
+    {
       title: 'about us',
       subtitle: 'we make your stategy work',
       text: 'When, while lovely valley teems with vapour around meand eridian sun strikes the upper impenetrable foliage of my trees, and but. When, while lovely valley teems with vapour around meand eridian sun strikes the upper impenetrable foliage of my trees, and but.'
+    },
+    {
+      title: null,
+      subtitle: 'we help to deliver the business case',
+      text: 'When, while lovely valley teems with vapour around meand eridian sun strikes the upper impenetrable foliage of my trees, and but.'
     },
     {
       title: 'project',
@@ -32,8 +42,17 @@ export const store = reactive({
   ],
 
 
+  /* ----- BOTTONI ----- */
+  buttons: [
+    'read more',
+    'get started',
+    'view all',
+    'get started',
+  ],
+
+
   /* ----- SERVIZI ----- */
-  services: [
+  serviceCards: [
     {
       title: 'statistical consulting',
       text: 'When, while lovely valley teems with vapour around meand eridian sun strikes the upper impenetrable foliage of my trees, and but.',
@@ -54,15 +73,6 @@ export const store = reactive({
       text: 'When, while lovely valley teems with vapour around meand eridian sun strikes the upper impenetrable foliage of my trees, and but.',
       icon: 'fa-solid fa-bullseye'
     },
-  ],
-
-
-  /* ----- BUTTON ----- */
-  buttons: [
-    'read more',
-    'get started',
-    'view all',
-    'get started',
   ],
 
 
@@ -118,12 +128,6 @@ export const store = reactive({
     {
       image: 'z1el4c4p-790x592.jpg',
       name: '03 Purinky Products',
-      category: 'uncategorized',
-      isHidden: false
-    },
-    {
-      image: 'z1el4c4p-790x592.jpg',
-      name: '04 Purinky Products',
       category: 'uncategorized',
       isHidden: false
     }

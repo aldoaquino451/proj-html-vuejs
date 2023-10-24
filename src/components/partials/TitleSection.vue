@@ -1,5 +1,4 @@
 <script>
-
 export default {
   nama: 'TitleSection',
   props: { sectionObj: Object }
@@ -10,9 +9,15 @@ export default {
 <template>
 
   <div class="title-section">
-    <h2 class="uppercase flex align-end gap-20"> {{ sectionObj.title }} </h2>
-    <h4 class="uppercase" v-html="sectionObj.subtitle"></h4>
+
+    <h2 v-if="sectionObj.title"  class="uppercase flex align-end gap-20"> {{ sectionObj.title }} </h2>
+
+    <h4 
+      class="uppercase" 
+      v-if="sectionObj.subtitle" v-html="sectionObj.subtitle"></h4>
+
     <p v-if="sectionObj.text" > {{ sectionObj.text }} </p>
+
   </div>
 
 </template>
@@ -24,7 +29,7 @@ export default {
 .title-section {
   h2 {
     margin-bottom: 30px;
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: $text-bglight-subtitle2;
     
     &:before,
