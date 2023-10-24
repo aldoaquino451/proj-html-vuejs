@@ -18,7 +18,34 @@ export default {
     ProjectCard 
   },
   data() {
-    return { store }
+    return { 
+      store,
+      counterArr: [ 1, 2 ]
+    }
+  },
+  methods: {
+    checkIndex() {
+      store.projectCards.forEach( (project, index) => {
+        if ( this.counterArr.includes(index)) project.isHidden = true
+        console.log(project.isHidden); 
+      });
+    },
+    changeCounter(isRight) {
+      if (isRight)  {
+        this.counterArr.forEach( number => {
+          number += 1;
+        })
+      }
+      if (!isRight)  {
+        this.counterArr.forEach( number => {
+          number += -1;
+        })
+      }
+      console.log(this.counterArr);
+    }
+  },
+  mounted() {
+    this.checkIndex()
   },
 }
 </script>
@@ -69,59 +96,67 @@ export default {
 
 
     <!----- #4 - GET STARTED ----->
-    <section id="get-started" class=" container-left">
-      <div class="get-started-content flex">
-        <h3 class="uppercase">we help to deliver the business case</h3>
-        <p>When, while lovely valley teems with vapour around meand eridian sun strikes the upper impenetrable foliage of my trees, and but.</p>
+    <section id="get-started">
+      <div class="get-started-container container-left">
+        <div class="get-started-content flex">
+          <h3 class="uppercase">we help to deliver the business case</h3>
+          <p>When, while lovely valley teems with vapour around meand eridian sun strikes the upper impenetrable foliage of my trees, and but.</p>
+        </div>
+        <LinkButton :textButton="store.buttons[1]" size="small" color="red" />
       </div>
-      <LinkButton :textButton="store.buttons[1]" size="small" color="red" />
     </section>
 
 
     <!----- #5 - PROGETTI ----->
-    <section id="projects" class="container">
-      <div class="projects-top flex justify-between align-end">
-        <TitleSection :sectionObj="store.sections[2]" />
-        <div class="flex gap-10"> 
-          <i class="arrow-btn fa-solid fa-arrow-left"></i>
-          <i class="arrow-btn fa-solid fa-arrow-right"></i>
+    <section id="projects">
+      <div class="container">
+        <div class="projects-top flex justify-between align-end">
+          <TitleSection :sectionObj="store.sections[2]" />
+          <div class="flex gap-10"> 
+            <i @click="changeCounter(false)" class="arrow-btn fa-solid fa-arrow-left"></i>
+            <i @click="changeCounter(true)" class="arrow-btn fa-solid fa-arrow-right"></i>
+          </div>
         </div>
-      </div>
 
-      <div class="slider flex">
-        <ProjectCard
-          v-for="(project, index) in store.projectCard"
-          :key="index"
-          :project="project" />
+        <div class="slider flex">
+          <ProjectCard
+            v-for="(project, index) in store.projectCards"
+            :key="index"
+            :project="project" />
+        </div>
       </div>
     </section>
 
 
     <!----- #6 - TESTIMONIAL ----->
-    <section id="testimonial" class="flex col">
-      <div class="testimonial-top container">
-        <TitleSection :sectionObj="store.sections[3]" />
-      </div>
-      <div class="testimonial-cards container-rigth flex">
-        <TestimonialCard 
-          v-for="(testimonial, index) in store.testimonialCards" 
-          :key="index"
-          :testiamonial="testimonial" />
+    <section id="testimonial">
+      <div  class="flex col">
+        <div class="testimonial-top container">
+          <TitleSection :sectionObj="store.sections[3]" />
+        </div>
+        <div class="testimonial-cards container-rigth flex">
+          <TestimonialCard 
+            v-for="(testimonial, index) in store.testimonialCards" 
+            :key="index"
+            :testiamonial="testimonial" />
+        </div>
       </div>
     </section>
 
 
     <!----- #7 - BLOG ----->
-    <section id="blog" class="container">
-      <div class="blog-top flex justify-between align-end">
-        <TitleSection :sectionObj="store.sections[4]" />
-        <LinkButton :textButton="store.buttons[2]" size="big" color="green" /> 
-      </div>
-      <div class="blog-cards flex">
-        <BlogCard 
-          v-for="(card, index) in store.blogCards"
-          :key="index"
-          :blogCardObj="card" />
+    <section id="blog">
+      <div class="container">
+        <div class="blog-top flex justify-between align-end">
+          <TitleSection :sectionObj="store.sections[4]" />
+          <LinkButton :textButton="store.buttons[2]" size="big" color="green" /> 
+        </div>
+        <div class="blog-cards flex">
+          <BlogCard 
+            v-for="(card, index) in store.blogCards"
+            :key="index"
+            :blogCardObj="card" />
+        </div>
       </div>
     </section>
 
@@ -213,7 +248,7 @@ export default {
 
 /* ----- #3 - ABOUT US ----- */  
   #about {
-    height: 850px;
+    padding: 200px 0;
     background-image: url(
       '../assets/img/business-people-working-together-on-project-and-5FHSKBL.jpg'
     );
@@ -234,34 +269,37 @@ export default {
 
 /* ----- #4 - GET STARTED ----- */
   #get-started {
-    margin-bottom: 220px;
-    padding: 110px 0 130px;
-    background-color: $bg-green;
-    position: relative;
-    .get-started-content {
-      margin: 0 360px;
-      gap: 250px;
-      h3 {
-        width: 40%;
-        font-size: 2rem;
-        font-weight: 700;
-        color: $bg-blue;
+    padding-bottom: 100px;
+
+    .get-started-container {
+      padding: 110px 0 130px;
+      background-color: $bg-green;
+      position: relative;
+      .get-started-content {
+        margin: 0 360px;
+        gap: 250px;
+        h3 {
+          width: 40%;
+          font-size: 2rem;
+          font-weight: 700;
+          color: $bg-blue;
+        }
+        p {
+          width: 50%;
+          color: $bg-blue;
+        }
       }
-      p {
-        width: 50%;
-        color: $bg-blue;
-      }
+      .btn {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      } 
     }
-    .btn {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-    } 
   }
 
 /* ----- #5 - PROGETTI ----- */
   #projects {
-    margin-bottom: 170px;
+    padding-top: 120px;
     .projects-top {
       margin-bottom: 50px;
       h2::after {
@@ -274,6 +312,10 @@ export default {
         font-size: 20px;
         text-align: center;
         background-color: $bg-arrows;
+        cursor: pointer;
+        &:hover {
+          opacity: 0.8;
+        }
       } 
     }
     .slider {
@@ -283,7 +325,8 @@ export default {
 
 /* ----- #6 - TESTIMONIAL ----- */
   #testimonial {
-    margin-bottom: 250px; 
+    padding-top: 170px; 
+    padding-bottom: 130px;
     .testimonial-top {
       margin-bottom: 50px;
       .title-section {
@@ -306,7 +349,8 @@ export default {
 
 /* ----- #7 - BLOG ----- */
   #blog {
-    margin-bottom: 340px;
+    padding-top: 120px; 
+    padding-bottom: 340px;
     .blog-top {
       margin-bottom: 60px;
       h2::after {

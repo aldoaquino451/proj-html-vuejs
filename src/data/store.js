@@ -102,24 +102,30 @@ export const store = reactive({
   ],
 
   /* ----- PROJECT ----- */
-  projectCard: [
+  projectCards: [
     {
       image: '221bf0b7-8134-43bb-936a-5acbe42db64a-790x592.jpg',
-      name: 'Purinky Products',
+      name: '01 Purinky Products',
       category: 'uncategorized',
-      isVisible: false
+      isHidden: false
     },
     {
       image: 'DRY-1-790x592.jpg',
-      name: 'Purinky Products',
+      name: '02 Purinky Products',
       category: 'uncategorized',
-      isVisible: false
+      isHidden: false
     },
     {
       image: 'z1el4c4p-790x592.jpg',
-      name: 'Purinky Products',
+      name: '03 Purinky Products',
       category: 'uncategorized',
-      isVisible: false
+      isHidden: false
+    },
+    {
+      image: 'z1el4c4p-790x592.jpg',
+      name: '04 Purinky Products',
+      category: 'uncategorized',
+      isHidden: false
     }
   ]
 

@@ -2,25 +2,29 @@
 export default {
   name: 'ProjectCard',
   props: { project: Object },
+
   methods: {
-    getDescription() {
-      let counter = 0;
-      this.isVisible = !this.isVisible;
-      counter = this.index
-      console.log(this.isVisible);
-      console.log(counter);
-    }
-  }
+    getImagePath(imgPath) {
+      return new URL(imgPath, import.meta.url).href;
+    },
+  },
 }
+
+// abbiamo 4 elementi ma ne voglio visualizzare solo 3
+// tutti gli elementi non visualizzati avranno la classe hidden
+// per sapere a quale card applicare la classe hidden utilizziamo un counter
+// il valore di deafult del counter è 0, 1, 2
+// al click sul arrow button right il counter divewnterà 1, 2, 3 
+// alla card 0 verrà applicato la classe hidden menntre 
 </script>
 
 
 <template>
-  <div class="card" @click="getDescription">
+  <div v-if="project.isHidden" class="card" >
     <img
-      src="../../assets/img/business-people-working-together-on-project-and-5FHSKBL-1390.jpg"
-      alt="">
-    <div v-if="isVisible" class="card-description flex align-end">
+      :src="getImagePath(`../../assets/img/${project.image}`)"
+      alt="image">
+    <div class="card-description flex align-end">
       <div class="flex w-100 justify-between">
         <div class="text flex col">
           <span class="name"><strong> {{ project.name }} </strong></span>
@@ -45,20 +49,18 @@ export default {
   img {
     width: 100%;
     object-fit: cover ;
-    // display: block;
+    display: block;
   }
 
   .card-description {
-    // visibility: hidden;
+    visibility: hidden;
     position: absolute;
     top: 0;
     bottom: 0;
     right: 0;
     left: 0;
     padding: 20px;
-    background-image: url('../../assets/img/business-people-working-together-on-project-and-5FHSKBL.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: hsla(352, 94%, 54%, 0.7);
     .text {
       .name {
         margin-bottom: 5px;
@@ -80,8 +82,12 @@ export default {
     }
   }
 
-  // &:hover .card-description{
-  //   visibility: visible;
-  // }
+  &.hidden {
+    display: none;
+  }
+
+  &:hover .card-description{
+    visibility: visible;
+  }
 }
 </style>
