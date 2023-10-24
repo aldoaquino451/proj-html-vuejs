@@ -45,6 +45,7 @@ export default {
   
   h4 {
     font-size: 3rem;
+    margin-bottom: 10px;
   }
 }
 

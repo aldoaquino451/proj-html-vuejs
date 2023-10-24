@@ -6,6 +6,7 @@ import ServiceCard from './partials/ServiceCard.vue';
 import BlogCard from './partials/BlogCard.vue';
 import TestimonialCard from './partials/TestimonialCard.vue';
 import ProjectCard from './partials/ProjectCard.vue';
+import Chat from './partials/Chat.vue';
 
 export default {
   name: 'Main',
@@ -16,10 +17,11 @@ export default {
     BlogCard, 
     TestimonialCard, 
     ProjectCard, 
+    Chat
   },
   data() {
     return { 
-      store,
+      store
     }
   }
 }
@@ -34,10 +36,10 @@ export default {
     <section id="home">
       <div class="home-content container">
 
-        <TitleSection :sectionObj="store.sections[0]" />
+        <TitleSection :sectionObj="store.titleSections['home']" />
 
         <div class="flex align-end">
-          <LinkButton :textButton="store.buttons[0]" size="big" color="green" />
+          <LinkButton :button="store.buttons[0]" size="big" color="green" />
           <a class="play-button flex center" href="#">
             <i class="fa-solid fa-play"></i>
           </a>
@@ -53,7 +55,7 @@ export default {
     <section id="services">
 
       <div class="services-top">
-        <TitleSection :sectionObj="store.sections[1]" />
+        <TitleSection :sectionObj="store.titleSections['services']" />
       </div>
 
       <div class="services-cards container-md flex">
@@ -70,7 +72,7 @@ export default {
     <section id="about">
       <div class="container h-100 flex justify-end align-center">
         <div class="about-content">
-          <TitleSection :sectionObj="store.sections[2]" />
+          <TitleSection :sectionObj="store.titleSections['about']" />
         </div>
       </div>
     </section>
@@ -79,8 +81,8 @@ export default {
     <!----- #4 - GET STARTED ----->
     <section id="get-started">
       <div class="get-started-container container-left">
-        <TitleSection class="flex" :sectionObj="store.sections[3]" />
-        <LinkButton :textButton="store.buttons[1]" size="small" color="red" />
+        <TitleSection class="flex" :sectionObj="store.titleSections['getstarted']" />
+        <LinkButton :button="store.buttons[1]" size="small" color="red" />
       </div>
     </section>
 
@@ -89,7 +91,7 @@ export default {
     <section id="projects">
       <div class="container">
         <div class="projects-top flex justify-between align-end">
-          <TitleSection :sectionObj="store.sections[4]" />
+          <TitleSection :sectionObj="store.titleSections['projects']" />
           <div class="flex gap-10"> 
             <i class="arrow-btn fa-solid fa-arrow-left"></i>
             <i class="arrow-btn fa-solid fa-arrow-right"></i>
@@ -110,7 +112,7 @@ export default {
     <section id="testimonial">
       <div  class="flex col">
         <div class="testimonial-top container">
-          <TitleSection :sectionObj="store.sections[5]" />
+          <TitleSection :sectionObj="store.titleSections['testimonial']" />
         </div>
         <div class="testimonial-cards container-rigth flex">
           <TestimonialCard 
@@ -126,8 +128,8 @@ export default {
     <section id="blog">
       <div class="container">
         <div class="blog-top flex justify-between align-end">
-          <TitleSection :sectionObj="store.sections[6]" />
-          <LinkButton :textButton="store.buttons[2]" size="big" color="green" /> 
+          <TitleSection :sectionObj="store.titleSections['blog']" />
+          <LinkButton :button="store.buttons[2]" size="big" color="green" /> 
         </div>
         <div class="blog-cards flex">
           <BlogCard 
@@ -142,9 +144,22 @@ export default {
     <!----- #8 - CONTATTI ----->
     <section id="contact">
       <div class="contact-content">
-        <h3 class="uppercase">let's talk about work</h3>
-        <p>A wonderfulserenity has taken possession far far away, behind the words mountains.</p>
-        <LinkButton :textButton="store.buttons[3]" size="small" color="blue" />
+        <TitleSection :sectionObj="store.titleSections['contact']" />
+        <LinkButton :button="store.buttons[3]" size="small" color="blue" />
+      </div>
+    </section>
+
+
+    <!----- #9 - MESSAGGI ----->
+    <section id="messages">
+      <div class="flex gap-20 align-end">
+
+        <a href="#home">
+          <i class="arrow-btn fa-solid fa-arrow-up flex center" ></i>
+        </a>
+
+        <Chat  />
+
       </div>
     </section>
 
@@ -257,11 +272,16 @@ export default {
       position: relative;
       .title-section {
         margin: 0 auto;
-        gap: 250px;
+        gap: 200px;
         width: 60%;
-        color: $bg-blue;
         h4 {
-          width: 120%;
+          width: 50%;
+          font-size: 2.2rem;
+          color: $bg-blue;
+        }
+        p {
+          width: 50%;
+          color: $bg-blue;
         }
       }
       .btn {
@@ -362,6 +382,24 @@ export default {
       }
       .btn {
         margin: 0 auto;
+      }
+    }
+  }
+
+/* ----- #8 - MESSAGGI ----- */
+  #messages {
+    position: fixed;
+    bottom: 30px;
+    right: 40px;
+    i {
+      cursor: pointer;
+      box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+      &.arrow-btn {
+        width: 40px;
+        height: 40px;
+        background-color: $bg-white;
+        color: $bg-blue;
       }
     }
   }

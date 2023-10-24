@@ -1,9 +1,7 @@
 <script>
 export default {
   name: 'Logo',
-  props: {
-    position: String
-  },  
+  props: { position: String },  
   
   data() {
     return {

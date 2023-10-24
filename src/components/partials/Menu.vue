@@ -3,7 +3,7 @@ export default {
   name: 'Menu',
   data() {
     return {
-      menu: [ 'home', 'about', 'projects', 'services', 'blog', 'contact' ]
+      menu: [ 'home', 'services', 'about', 'projects', 'blog', 'contact' ]
     }
   },
 }

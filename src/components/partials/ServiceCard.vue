@@ -2,9 +2,7 @@
 
 export default {
   nama: 'ServiceCard',
-  props: {
-    service: Object
-  }
+  props: { service: Object }
 }
 </script>
 

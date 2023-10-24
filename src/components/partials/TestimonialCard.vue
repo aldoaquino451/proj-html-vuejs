@@ -1,9 +1,7 @@
 <script>
 export default {
   name: 'TestimonialCard  ',
-  props: {
-    testiamonial: Object,
-  },
+  props: { testiamonial: Object },
   methods: {
     getImagePath(imagePath) {
       return new URL(imagePath, import.meta.url).href

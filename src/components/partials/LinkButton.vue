@@ -1,7 +1,7 @@
 <script>
 export default {
   nama: 'LinkButton',
-  props: { textButton: String, size: String, color: String },
+  props: { button: Object, size: String, color: String },
 }
 </script>
 
@@ -9,10 +9,10 @@ export default {
 <template>
   <div>
     <a
-      href="#"
+      :href="button.link"
       class="btn flex uppercase"
       :class="color, size">
-      {{ textButton }}
+      {{ button.text }} 
     </a>
   </div>
 </template>

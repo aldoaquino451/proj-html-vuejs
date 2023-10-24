@@ -3,51 +3,76 @@ import { reactive } from 'vue'
 export const store = reactive({
 
   /* ----- TITOLI DELLE SECTION ----- */
-  sections: [
-    {
+  titleSections: {
+    home: {
+      name: 'home',
       title: 'alway the best way you need it',
       subtitle: 'the best <br>business <br>consulting',
       text: null
     },
-    {
+    services: {
+      name: 'services',
       title: 'our consultans can help you',
       subtitle: null,
       text: null
     },
-    {
+    about: {
+      name: 'about',
       title: 'about us',
       subtitle: 'we make your stategy work',
       text: 'When, while lovely valley teems with vapour around meand eridian sun strikes the upper impenetrable foliage of my trees, and but. When, while lovely valley teems with vapour around meand eridian sun strikes the upper impenetrable foliage of my trees, and but.'
     },
-    {
+    getstarted: {
+      name: 'get-started',
       title: null,
-      subtitle: 'we help to deliver the business case',
+      subtitle: 'we help to deliver <br>the business case',
       text: 'When, while lovely valley teems with vapour around meand eridian sun strikes the upper impenetrable foliage of my trees, and but.'
     },
-    {
+    projects: {
+      name: 'projects',
       title: 'project',
       subtitle: 'our expert trusted consultans <br>help clients',
       text: null,
     },
-    {
+    testimonial: {
+      name: 'testimonial',
       title: 'testimonial',
       subtitle: 'what\'s the customer say <br>about our work',
       text: null,
     },
-    {
+    blog: {
+      name: 'blog',
       title: 'blog',
       subtitle: 'the recent news you must read it',
       text: null,
+    },
+    contact: {
+      name: 'contact',
+      title: null,
+      subtitle: 'let\'s talk about work',
+      text: 'A wonderfulserenity has taken possession far far away, behind the words mountains.',
     }
-  ],
+  },
 
 
   /* ----- BOTTONI ----- */
   buttons: [
-    'read more',
-    'get started',
-    'view all',
-    'get started',
+    {
+      text: 'read more',
+      link: '#services'
+    },
+    {
+      text: 'get started',
+      link: '#contact'
+    },
+    {
+      text: 'view all',
+      link: '#'
+    },
+    {
+      text: 'get started',
+      link: '#contact'
+    }
   ],
 
 
@@ -83,7 +108,8 @@ export const store = reactive({
       date: ['july 4, 2019', 'by paul'],
       title: 'Canadian Consulting Film acquired by UK Giant',
       text: 'When, while lovely valley teems with vapour around meand eridian sun strikes the upper impenetrable foliage of my trees, and but.'
-    }, {
+    },
+    {
       image: 'img/startup-business-people-and-strategy-board-PAJ3P9K-1390x1042.jpg',
       date: ['july 4, 2019', 'by paul'],
       title: 'Canadian Consulting Film acquired by UK Giant',

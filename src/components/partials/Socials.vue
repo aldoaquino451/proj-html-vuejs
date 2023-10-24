@@ -5,11 +5,23 @@ export default {
   data() {
     return {
       socials: [
-        'fa-brands fa-instagram',
-        'fa-brands fa-linkedin-in',
-        'fa-brands fa-facebook-f',
-        'fa-brands fa-twitter'
-        ]
+        {
+          social: 'fa-brands fa-instagram',
+          link: '#'
+        },
+        {
+          social: 'fa-brands fa-linkedin-in',
+          link: '#'
+        },
+        {
+          social: 'fa-brands fa-facebook-f',
+          link: '#'
+        },
+        {
+          social: 'fa-brands fa-twitter',
+          link: '#'
+        },
+      ]
     }
   },
 }
@@ -20,7 +32,7 @@ export default {
   <div>
     <ul class="socials flex">
       <li v-for="(item, index) in socials" :key="index"> 
-          <a href="#"><i :class="item"></i></a>
+        <a href="#"><i :class="item.social"></i></a>
       </li>
     </ul>
   </div>
